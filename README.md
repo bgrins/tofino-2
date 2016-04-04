@@ -42,4 +42,8 @@ Currently just eslint tests.
 npm test
 ```
 
+## Contributing
+
+See the [CONTRIBUTING](/CONTRIBUTING.md) file for further notes.
+
 ## License
