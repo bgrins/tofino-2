@@ -31,3 +31,7 @@ export function setCurrentTab(pageIndex) {
 export function setPageOrder(pageOrder) {
   return { type: types.SET_PAGE_ORDER, pageOrder };
 }
+
+export function togglePagesSection() {
+  return { type: types.TOGGLE_PAGES_SECTION };
+}

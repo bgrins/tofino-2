@@ -13,6 +13,7 @@ const initialState = new State({
   pages: Immutable.List.of(new Page({ location: HOME_PAGE })),
   pageOrder: Immutable.List.of(0),
   currentPageIndex: 0,
+  pageSectionOpened: false,
 });
 
 export default function basic(state = initialState, action) {
@@ -40,6 +41,9 @@ export default function basic(state = initialState, action) {
 
     case types.SET_PAGE_ORDER:
       return setPageOrder(state, action.pageOrder);
+
+    case types.TOGGLE_PAGES_SECTION:
+      return togglePagesSection(state);
 
     default:
       return state;
@@ -123,4 +127,8 @@ function setCurrentTab(state, pageIndex) {
 
 function setPageOrder(state, pageOrder) {
   return state.set('pageOrder', pageOrder);
+}
+
+function togglePagesSection(state) {
+  return state.set('pageSectionOpened', !state.get('pageSectionOpened'));
 }
