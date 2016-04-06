@@ -65,7 +65,8 @@ function createTab(state, location = HOME_PAGE) {
   const page = new Page({ location });
   return state.update('pages', pages => pages.push(page))
               .set('currentPageIndex', state.pages.size)
-              .update('pageOrder', po => po.push(state.pages.size));
+              .update('pageOrder', po => po.push(state.pages.size))
+              .set('pageSectionOpened', true);
 }
 
 function duplicateTab(state, pageIndex) {

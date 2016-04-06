@@ -42,7 +42,7 @@ class BrowserWindow extends Component {
                 pages={pages}
                 ipcRenderer={ipcRenderer}
                 pageSectionOpened={pageSectionOpened} />
-        <TabBar {...{ pages, pageOrder, currentPageIndex }} />
+        <TabBar {...{ pages, pageOrder, currentPageIndex, pageSectionOpened }} />
         <div id="content-area">
           {pages.map((page, pageIndex) => (
             <Page key={'page-' + pageIndex}
