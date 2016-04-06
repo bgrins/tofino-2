@@ -33,14 +33,15 @@ class BrowserWindow extends Component {
   }
 
   render() {
-    const { pages, currentPageIndex, pageOrder, ipcRenderer } = this.props;
+    const { pages, currentPageIndex, pageOrder, ipcRenderer, pageSectionOpened } = this.props;
     const platformClass = `platform-${platform}`;
 
     return (
       <div id="browser-chrome" className={"platform-" + platform} >
         <NavBar page={pages.get(currentPageIndex)}
                 pages={pages}
-                ipcRenderer={ipcRenderer} />
+                ipcRenderer={ipcRenderer}
+                pageSectionOpened={pageSectionOpened} />
         <TabBar {...{ pages, pageOrder, currentPageIndex }} />
         <div id="content-area">
           {pages.map((page, pageIndex) => (
@@ -60,6 +61,7 @@ BrowserWindow.propTypes = {
   currentPageIndex: PropTypes.number.isRequired,
   dispatch: PropTypes.func.isRequired,
   ipcRenderer: PropTypes.object.isRequired,
+  pageSectionOpened: PropTypes.bool.isRequired,
 };
 
 export default connect()(BrowserWindow);

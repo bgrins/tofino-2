@@ -23,6 +23,8 @@ export const State = Immutable.Record({
   pageOrder: Immutable.List(),
   // The currently displayed tab
   currentPageIndex: -1,
+  // The currently displayed tab
+  pageSectionOpened: false,
 });
 
 /**
