@@ -29,11 +29,10 @@ const NavBar = ({ page, pages, dispatch, ipcRenderer }) => {
     <div id="browser-navbar">
       <Btn title="Menu" icon="bars fa-lg"
         onClick={() => menuBrowser(dispatch)} />
-
-      <a id="pages-button">
+      <Btn id="pages-button" onClick={ () => {}} title="Pages">
         <span className="page-count">{pages.length}</span>
         {"Pages"}
-      </a>
+      </Btn>
       <Btn title="Back" icon="arrow-left fa-lg"
         onClick={e => getCurrentWebView(e.target.ownerDocument).goBack()}
         disabled={!page.canGoBack} />
