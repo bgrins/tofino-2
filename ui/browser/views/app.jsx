@@ -21,6 +21,7 @@ export const App = ({ state }) => (
   <BrowserWindow pages={state.pages}
     pageOrder={state.pageOrder}
     currentPageIndex={state.currentPageIndex}
+    pageSectionOpened={state.pageSectionOpened}
     ipcRenderer={ipcRenderer} />
 );
 

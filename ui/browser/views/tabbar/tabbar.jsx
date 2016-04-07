@@ -21,8 +21,13 @@ import { TabBarDragDrop, TabDragDrop } from './dragdrop';
  * The TabBar runs across the top of each browser window, containing the
  * window management buttons, and browser tabs
  */
-const TabBar = ({ pageOrder, pages, currentPageIndex, dispatch }) => {
+const TabBar = ({ pageOrder, pages, currentPageIndex, dispatch, pageSectionOpened }) => {
   const barDragDrop = new TabBarDragDrop(pages, pageOrder, dispatch);
+
+  // This is the 'pages' section, which can be collapsed
+  if (!pageSectionOpened) {
+    return null;
+  }
 
   return (
     <div id="browser-tabs" dragzone="copy string:test/uri-list"

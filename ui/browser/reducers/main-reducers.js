@@ -24,6 +24,7 @@ const initialState = new State({
   pages: Immutable.List.of(new Page({ location: HOME_PAGE })),
   pageOrder: Immutable.List.of(0),
   currentPageIndex: 0,
+  pageSectionOpened: false,
 });
 
 export default function basic(state = initialState, action) {
@@ -52,6 +53,9 @@ export default function basic(state = initialState, action) {
     case types.SET_PAGE_ORDER:
       return setPageOrder(state, action.pageOrder);
 
+    case types.TOGGLE_PAGES_SECTION:
+      return togglePagesSection(state);
+
     default:
       return state;
   }
@@ -61,7 +65,8 @@ function createTab(state, location = HOME_PAGE) {
   const page = new Page({ location });
   return state.update('pages', pages => pages.push(page))
               .set('currentPageIndex', state.pages.size)
-              .update('pageOrder', po => po.push(state.pages.size));
+              .update('pageOrder', po => po.push(state.pages.size))
+              .set('pageSectionOpened', true);
 }
 
 function duplicateTab(state, pageIndex) {
@@ -134,4 +139,8 @@ function setCurrentTab(state, pageIndex) {
 
 function setPageOrder(state, pageOrder) {
   return state.set('pageOrder', pageOrder);
+}
+
+function togglePagesSection(state) {
+  return state.set('pageSectionOpened', !state.get('pageSectionOpened'));
 }
