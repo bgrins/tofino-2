@@ -25,7 +25,7 @@ const NavBar = ({ page, pages, dispatch, ipcRenderer, pageSectionOpened }) => {
   if (page == null) {
     return <div id="browser-navbar"></div>;
   }
-
+  console.log("Rendering navbar", pageSectionOpened);
   return (
     <div id="browser-navbar">
       <Btn title="Menu" icon="bars fa-lg"
